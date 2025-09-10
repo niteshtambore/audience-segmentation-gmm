@@ -31,6 +31,15 @@ required_cols_info = [
 st.write(required_cols_info)
 st.info("Make sure your uploaded CSV has all these columns for successful segmentation.")
 
+# Button to download sample
+with open("audience_data.csv", "rb") as f:
+    st.sidebar.download_button(
+        label="📥 Download Sample CSV",
+        data=f,
+        file_name="sample_audience_data.csv",
+        mime="text/csv",
+    )
+
 st.sidebar.header("Upload User Dataset")
 uploaded_file = st.sidebar.file_uploader("Upload a CSV with user data", type=["csv"])
 
